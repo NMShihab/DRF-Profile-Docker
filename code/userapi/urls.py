@@ -1,12 +1,9 @@
 from django.urls import path
-from .views import test_apiview,hello_world, MyTokenObtainPairView,getUserProfile,getAllProfile
+from .views import  MyTokenObtainPairView,getUserProfile,getAllProfile,userRegister
 
-urlpatterns = [
-    path("test",test_apiview,name="testapi"),
-    path("hello",hello_world,name="hello"),
+urlpatterns = [ 
+    path("signup/",userRegister,name="register"),
     path('login/', MyTokenObtainPairView.as_view(), name='login'),
     path("user/profile/",getUserProfile,name="userProfile"),
-    path("users",getAllProfile,name="users"),
-
-    
+    path("users",getAllProfile,name="users"),  
 ]
